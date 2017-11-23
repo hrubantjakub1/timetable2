@@ -5,7 +5,9 @@ import com.springdatajpamanytomany.timetable.model.Subject;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface SubjectRepository extends JpaRepository<Subject, Integer> {
 
@@ -17,5 +19,7 @@ public interface SubjectRepository extends JpaRepository<Subject, Integer> {
     List<Subject> findAllByStudents_UserName(String username);
 
     //metoda vyhleda predmet podle dne v tydnu a casu, kdy se predmet kona
-    List<Subject> findByWeekdayAndTime(String weekday, String time);
+    Subject findByWeekdayAndTime(String weekday, String time);
+
+    Map<Integer, Subject> studentsubject = new HashMap<Integer, Subject>();
 }

@@ -5,6 +5,7 @@ import com.springdatajpamanytomany.timetable.model.Student;
 import com.springdatajpamanytomany.timetable.model.Subject;
 import com.springdatajpamanytomany.timetable.repository.StudentRepository;
 import com.springdatajpamanytomany.timetable.repository.SubjectRepository;
+import com.springdatajpamanytomany.timetable.view.ViewTimetable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,8 @@ public class TimetableApplication implements CommandLineRunner {
     @Autowired
     SubjectRepository subjectRepository;
 
+    @Autowired
+    ViewTimetable viewTimetable;
 
 	@Autowired
     StudentSubject studentSubject;
@@ -104,12 +107,15 @@ public class TimetableApplication implements CommandLineRunner {
         Subject subjectx = subjectRepository.findByAbrev("PST");
         log.info(subjectx.toString());
 
-        log.info("===================find by suject name:==================");
+        log.info("===================find by subject name:==================");
         Subject subjectList2 = subjectRepository.findBySubjectName("Hardwarová bezpečnost");
         log.info(subjectList2.toString());
 
         log.info("===================find by subject name:==================");
         List<Subject> subjectList3 = studentRepository.getSubjectsByUserName("tepalbob");
         subjectList3.forEach(subject -> log.info(subject.toString()));
+
+//        viewTimetable.ViewStudentTimetable("kolinskypetr");
+
     }
 }

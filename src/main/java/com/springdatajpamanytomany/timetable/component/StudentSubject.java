@@ -7,10 +7,7 @@ import com.springdatajpamanytomany.timetable.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Component
 public class StudentSubject {
@@ -27,6 +24,7 @@ public class StudentSubject {
 
     // jednorazove prihlasi studenta ke zvolenym predmetum podle zkratky predmetu
 public void saveAllUserSubjects(String studentovoUsername, String [] allSubjects){
+    //
     Set<Subject> subjects = new HashSet<Subject>();
     Student student = studentRepository.findByUserName(studentovoUsername);
     for(int i=0;i<allSubjects.length; i++){
@@ -37,14 +35,6 @@ public void saveAllUserSubjects(String studentovoUsername, String [] allSubjects
         student.setSubjects(subjects);
     }
 }
-
-    // vyhleda studentuv predmet podle id
-
-//    public void findStudentSubjectsBySubjectId(String username, String subjectId){
-//        Map<Integer, Subject> hello = new HashMap<Integer, Subject>();
-//        studentRepository.getSubjectsByUserName(username).forEach(subject1 ->
-//            hello.put(subject1.getId(), subject1));
-//    }
 
     // prihlasi studenta na zvoleny predmet zadavame zkratku predmetu a prihlasovaci jmeno
 

@@ -18,4 +18,6 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     // vyhleda studenta podle prijmeni
     Student findByLastName(String lastname);
+
+
 }
