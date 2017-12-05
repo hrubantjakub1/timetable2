@@ -32,7 +32,6 @@ public class TimetableApplication implements CommandLineRunner {
 
 	@Autowired
     StudentSubject studentSubject;
-
     private static final Logger log = LoggerFactory.getLogger(TimetableApplication.class);
 
     public static void main(String[] args) {
@@ -115,7 +114,8 @@ public class TimetableApplication implements CommandLineRunner {
         List<Subject> subjectList3 = studentRepository.getSubjectsByUserName("tepalbob");
         subjectList3.forEach(subject -> log.info(subject.toString()));
 
-//        viewTimetable.ViewStudentTimetable("kolinskypetr");
+       // viewTimetable.ViewStudentTimetable("kolinskypetr");
 
+       viewTimetable.ViewStudentTimetable("veselyvojtech");
     }
 }

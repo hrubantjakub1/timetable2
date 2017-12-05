@@ -64,6 +64,14 @@ public class Subject {
         this.id = id;
     }
 
+    public String getSubjectName() {
+        return subjectName;
+    }
+
+    public void setSubjectName(String subjectName) {
+        this.subjectName = subjectName;
+    }
+
     public String getLectorName() {
         return lectorName;
     }

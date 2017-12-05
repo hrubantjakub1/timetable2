@@ -6,6 +6,7 @@ import com.springdatajpamanytomany.timetable.repository.StudentRepository;
 import com.springdatajpamanytomany.timetable.repository.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
@@ -16,11 +17,15 @@ public class StudentSubject {
 
     private Student student;
 
-    @Autowired
-    private SubjectRepository subjectRepository;
+    private final SubjectRepository subjectRepository;
+
+    private final StudentRepository studentRepository;
 
     @Autowired
-    private StudentRepository studentRepository;
+    public StudentSubject(SubjectRepository subjectRepository, StudentRepository studentRepository) {
+        this.subjectRepository = subjectRepository;
+        this.studentRepository = studentRepository;
+    }
 
     // jednorazove prihlasi studenta ke zvolenym predmetum podle zkratky predmetu
 public void saveAllUserSubjects(String studentovoUsername, String [] allSubjects){

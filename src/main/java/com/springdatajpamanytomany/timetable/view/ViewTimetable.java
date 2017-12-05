@@ -1,6 +1,5 @@
 package com.springdatajpamanytomany.timetable.view;
 
-import com.springdatajpamanytomany.timetable.TimetableApplication;
 import com.springdatajpamanytomany.timetable.component.StudentSubject;
 import com.springdatajpamanytomany.timetable.model.Subject;
 import com.springdatajpamanytomany.timetable.repository.StudentRepository;
@@ -30,7 +29,8 @@ public class ViewTimetable {
     public void ViewStudentTimetable(String username){
         //principem metody je ze se seznam predmetu studenta nacte do hashmap. Kazdy predmet lze vyhledat podle jeho id
         //Predmety je potreba ulozit do kalendare. Vzdy se vyhleda predmet podle dne a tydnu 
-        // a pak se id predmetu vyhleda vhodny predmet ulozeny v mape 
+        // a pak se id predmetu vyhleda vhodny predmet ulozeny v mape
+
                List<String> week = studentSubject.weekdayFunction();
                List<String> time = studentSubject.timeFunction();
 
@@ -38,25 +38,45 @@ public class ViewTimetable {
 
         List<Subject> studentSubjectList = studentRepository.getSubjectsByUserName(username);
         studentSubjectList.forEach(subject -> studentSubjectAndItsId.put(subject.getId(),subject));
-        
-        for(int i =0; i<time.size();i++){
-            for(int j=0;i<week.size();j++){
-                Subject subject = subjectRepository.findByWeekdayAndTime(week.get(i),time.get(j));
-                
-                
-//                studentSubjectAndItsId.get()
-            }
-            
-        }
+
+        // prvni radek vypise seznam hodin do rozvrhu
+
+        time.forEach(lesson->{
+            System.out.format("%28s", lesson);
+
+        });
+        System.out.println();
+
+            // od druheho radku se vypisuje poporadku den v tydnu a potom jednotlive predmety studenta
+
+       week.forEach(day->{
+           time.forEach(lesson-> {
+               System.out.print(day);
+               Subject subject = subjectRepository.findByWeekdayAndTime(day, lesson);
+               if (subject != null){
+                   System.out.format("%28s", subject.getSubjectName());
+               }
+               else
+               {
+                   System.out.print("                            ");
+               }
+           });
+       });
     }
 
     public void ViewTwoStudentsSubjects(){
 
     }
 
-    public void ViewAllStudentsSubjects(String [] allUsernames){}
+    public void ViewAllStudentsSubjects(String [] allUsernames){
 
-    public void ViewTwoStudentsFreeTime(String username, String username2){}
+
+    }
+
+    public void ViewTwoStudentsFreeTime(String username, String username2){
+
+
+    }
 
 
 
