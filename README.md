@@ -14,7 +14,6 @@ Project Structure
 7. Java 8 
 8. Spring Boot 1.5.8.RELEASE
 
-
 2. Java Persistence API - JPA
 Using Spring Data JPA Crud repository interface simplify usage of entitymanager and query interface. Entity manager provide basic crud operations like persist, remove etc. Spring Data Jpa provide simplified implementation like findAll(), findOne(), findByFirstname() etc.
 Using Spring Boot, no persistance.xml is needed. Classes are configured automatically.
