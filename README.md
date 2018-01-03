@@ -4,7 +4,7 @@ Timetable application allows to every student to add, to edit or to remove subje
 
 Timetable is Spring Data Jpa based application. Hibernate JPA is simplified by Spring Data and automatically configured by Spring Boot. It uses Hikari connection pool to connect to database.
 
-Project Structure
+#1. Project Structure
 1. Spring Data 1.13.8.RELEASE 
 2. Hibernate 5 
 3. MySQL Workbench Community (GPL) for Windows version 6.3.9
@@ -14,13 +14,13 @@ Project Structure
 7. Java 8 
 8. Spring Boot 1.5.8.RELEASE
 
-2. Java Persistence API - JPA
+#2. Java Persistence API - JPA
 Using Spring Data JPA Crud repository interface simplify usage of entitymanager and query interface. Entity manager provide basic crud operations like persist, remove etc. Spring Data Jpa provide simplified implementation like findAll(), findOne(), findByFirstname() etc.
 Using Spring Boot, no persistance.xml is needed. Classes are configured automatically.
 
-3. Configuration + Database Inialization
+#3. Configuration + Database Inialization
 Configure Mysql data source, HikariCP and show Hibernate query
 
-4. If data.sql and schema.sql is found in the classpath, Hibernate will load it automatically
+#4. If data.sql and schema.sql is found in the classpath, Hibernate will load it automatically
 
-5.Spring Boot Starter 
+#5.Spring Boot Starter 
